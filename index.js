@@ -34,3 +34,11 @@ const account = (state=defaultState, action) => {
 }
 
 const store = createStore(account);
+
+store.subscribe(() => {
+    console.log('subscribing to state changes....');
+    const state = store.getState();
+    console.log("the state is:", state);
+});
+
+store.dispatch(actionIncrement);
